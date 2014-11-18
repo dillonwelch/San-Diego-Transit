@@ -5,7 +5,8 @@ class CreateSchedules < ActiveRecord::Migration
       t.string  :direction
       t.integer :timetable_row
       t.integer :stop_id
-      t.datetime :stop_time
+      t.string  :stop_time
+      t.string  :time_of_week
 
       t.timestamps
     end

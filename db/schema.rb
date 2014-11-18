@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(version: 20141118212513) do
     t.string   "direction"
     t.integer  "timetable_row"
     t.integer  "stop_id"
-    t.datetime "stop_time"
+    t.string   "stop_time"
+    t.string   "time_of_week"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
