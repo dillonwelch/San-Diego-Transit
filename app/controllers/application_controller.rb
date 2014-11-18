@@ -7,6 +7,4 @@ class ApplicationController < ActionController::Base
   ###I18n.t values for names
   ###I18n.t values for directions
   ###I18n.t values for names
-
-  #time of stop
 end
