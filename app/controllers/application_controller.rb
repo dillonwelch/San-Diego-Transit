@@ -4,10 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   #Schedule table
-  ###table for routes (id, I18n.t name)
   ###I18n.t values for names
   ###I18n.t values for directions
-  ###table for stops (id, I18n.t name)
   ###I18n.t values for names
 
   #time of stop
