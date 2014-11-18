@@ -1,5 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Stop, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Stop do
+  it "tests some things" do
+    stop = create(:stop)
+    expect(stop.name).not_to eq("rawr")
+  end
 end
