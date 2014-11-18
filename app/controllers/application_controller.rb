@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   #Schedule table
-  #add mts id to routes
   #add weekday/saturday/sunday/holiday distinction
   ###I18n.t values for names
   ###I18n.t values for directions

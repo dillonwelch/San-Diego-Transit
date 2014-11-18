@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118202127) do
+ActiveRecord::Schema.define(version: 20141118212513) do
 
   create_table "routes", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "mts_id"
   end
 
   create_table "schedules", force: true do |t|
