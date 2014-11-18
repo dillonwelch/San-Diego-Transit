@@ -1,8 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Stop do
-  it "tests some things" do
-    stop = create(:stop)
-    expect(stop.name).not_to eq("rawr")
+  it "validates the stop name" do
+    expect(build(:stop, name: nil)).to be_invalid
   end
 end
