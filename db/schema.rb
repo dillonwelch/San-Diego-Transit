@@ -25,6 +25,11 @@ ActiveRecord::Schema.define(version: 20141118222304) do
     t.integer "route_id"
   end
 
+  create_table "schedule_stops", force: true do |t|
+    t.integer "schedule_id"
+    t.integer "stop_id"
+  end
+
   create_table "schedules", force: true do |t|
     t.string   "direction"
     t.integer  "timetable_row"

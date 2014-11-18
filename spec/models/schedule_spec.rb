@@ -2,9 +2,9 @@ require 'spec_helper'
 
 RSpec.describe Schedule, :type => :model do
   it "does stuff" do
-    route = create(:route)
-    schedule = create(:schedule, route: route)
-    schedule2 = create(:schedule, route: route)
+    stop = create(:stop)
+    schedule = create(:schedule, stop: stop)
+    schedule2 = create(:schedule, stop: stop)
     byebug
   end
 end
