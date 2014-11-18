@@ -7,7 +7,6 @@ class CreateSchedules < ActiveRecord::Migration
       t.integer :stop_id
       t.datetime :stop_time
 
-
       t.timestamps
     end
   end
