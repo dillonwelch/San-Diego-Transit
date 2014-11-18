@@ -19,9 +19,10 @@ module Code
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    #
+
+    # Uses RSpec for test generation.
     config.app_generators do |c|
-      c.test_framework :rspec, :fixture => true,
+      c.test_framework :rspec, :fixture => false,
                                :fixture_replacement => nil
 
       c.integration_tool :rspec
