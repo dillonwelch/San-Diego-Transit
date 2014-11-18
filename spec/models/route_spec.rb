@@ -1,5 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe Route, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Route do
+  it "validates the route name" do
+    expect(build(:route, name: nil)).to be_invalid
+  end
 end
