@@ -3,6 +3,8 @@ class CreateScheduleRoutesJoinTable < ActiveRecord::Migration
     create_table :schedule_routes do |t|
       t.integer :schedule_id
       t.integer :route_id
+
+      t.timestamps
     end
   end
 end

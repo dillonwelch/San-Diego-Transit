@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :schedule do
-    #TODO join models?
+    route
+    stop
     direction "West"
     timetable_row 1
     stop_time "8:00 AM"

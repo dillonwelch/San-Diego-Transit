@@ -21,13 +21,17 @@ ActiveRecord::Schema.define(version: 20141118222304) do
   end
 
   create_table "schedule_routes", force: true do |t|
-    t.integer "schedule_id"
-    t.integer "route_id"
+    t.integer  "schedule_id"
+    t.integer  "route_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "schedule_stops", force: true do |t|
-    t.integer "schedule_id"
-    t.integer "stop_id"
+    t.integer  "schedule_id"
+    t.integer  "stop_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "schedules", force: true do |t|
