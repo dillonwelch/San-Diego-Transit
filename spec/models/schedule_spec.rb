@@ -24,7 +24,7 @@ RSpec.describe Schedule do
 
     Schedule::DIRECTIONS.each do |direction|
       it "is valid with the #{direction} direction" do
-        expect(build(:schedule, direction: direction)).to be_valid
+        expect(build_stubbed(:schedule, direction: direction)).to be_valid
       end
     end
   end
@@ -35,13 +35,13 @@ RSpec.describe Schedule do
 
   describe "the stop time" do
     it "validates the presence" do
-      expect(build(:schedule, stop_time: nil)).to be_invalid
+      expect(build_stubbed(:schedule, stop_time: nil)).to be_invalid
     end
 
     describe "valid times" do
       ["08:00", "11:59", "15:34", "23:18", "00:00"].each do |time|
         it "is invalid with the time #{time}" do
-          expect(build(:schedule, stop_time: time)).to be_valid
+          expect(build_stubbed(:schedule, stop_time: time)).to be_valid
         end
       end
     end
@@ -49,7 +49,7 @@ RSpec.describe Schedule do
     describe "invalid times" do
       ["29:12", "31:49", "19:72", "08:99"].each do |time|
         it "is invalid with the fake time #{time}" do
-          expect(build(:schedule, stop_time: time)).to be_invalid
+          expect(build_stubbed(:schedule, stop_time: time)).to be_invalid
         end
       end
     end
@@ -57,16 +57,16 @@ RSpec.describe Schedule do
 
   describe "the time of week" do
     it "validates the presence" do
-      expect(build(:schedule, time_of_week: nil)).to be_invalid
+      expect(build_stubbed(:schedule, time_of_week: nil)).to be_invalid
     end
 
     it "is invalid with a random string" do
-      expect(build(:schedule, time_of_week: '123')).to be_invalid
+      expect(build_stubbed(:schedule, time_of_week: '123')).to be_invalid
     end
 
     Schedule::TIMES_OF_WEEK.each do |time|
       it "is valid with #{time}" do
-        expect(build(:schedule, time_of_week: time)).to be_valid
+        expect(build_stubbed(:schedule, time_of_week: time)).to be_valid
       end
     end
   end
