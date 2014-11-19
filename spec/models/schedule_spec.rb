@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 RSpec.describe Schedule do
+  ['schedule_route', 'route', 'schedule_stop', 'stop'].each do |field|
+    describe "The #{field} field" do
+      it_behaves_like("an association field", :schedule, field)
+    end
+  end
+
   describe "the direction" do
     it_behaves_like("a numeric field greater than 0", :schedule, :direction)
 
