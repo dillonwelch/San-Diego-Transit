@@ -3,7 +3,7 @@ en:
     weekday:  Weekday
     saturday: Saturday
     sunday:   Sunday
-  directions:
+  direction:
     north: North
     south: South
     east:  East
