@@ -9,6 +9,5 @@ class ApplicationController < ActionController::Base
   ###I18n.t values for stop names
   ###I18n.t values for time of week
   #
-  #spec for schedulestops
   #spec for scheduleroutes
 end
