@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   #Schedule table
-  #add weekday/saturday/sunday/holiday distinction
-  ###I18n.t values for names
-  ###I18n.t values for directions
-  ###I18n.t values for names
+  ###I18n.t values for route names
+  ###I18n.t values for direction names
+  ###I18n.t values for stop names
+  ###I18n.t values for time of week
+  #
+  #spec for schedule
+  #spec for schedulestops
+  #spec for scheduleroutes
 end
