@@ -22,7 +22,25 @@ RSpec.describe Schedule do
   end
 
   describe "the stop time" do
-    pending "Waiting on validation"
+    it "validates the presence" do
+      expect(build(:schedule, stop_time: nil)).to be_invalid
+    end
+
+    describe "valid times" do
+      ["08:00", "11:59", "15:34", "23:18", "00:00"].each do |time|
+        it "is invalid with the time #{time}" do
+          expect(build(:schedule, stop_time: time)).to be_valid
+        end
+      end
+    end
+
+    describe "invalid times" do
+      ["29:12", "31:49", "19:72", "08:99"].each do |time|
+        it "is invalid with the fake time #{time}" do
+          expect(build(:schedule, stop_time: time)).to be_invalid
+        end
+      end
+    end
   end
 
   describe "the time of week" do

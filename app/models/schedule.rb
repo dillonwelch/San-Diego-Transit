@@ -15,8 +15,8 @@ class Schedule < ActiveRecord::Base
   validates :direction, inclusion: DIRECTIONS
 
   validates :timetable_row, numericality: { only_integer: true, greater_than: 0 }
-  #TODO
-  validates :stop_time, presence: true
+
+  validates :stop_time, format: { with: /(([01][0-9])|(2[0-3])):[0-5][0-9]/ }
 
   validates :time_of_week, inclusion: TIMES_OF_WEEK
 end
