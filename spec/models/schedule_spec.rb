@@ -19,15 +19,7 @@ RSpec.describe Schedule do
     end
   end
 
-  describe "the direction" do
-    it_behaves_like("a numeric field greater than 0", :schedule, :direction)
-
-    Schedule::DIRECTIONS.each do |direction|
-      it "is valid with the #{direction} direction" do
-        expect(build_stubbed(:schedule, direction: direction)).to be_valid
-      end
-    end
-  end
+  it { should validate_inclusion_of(:direction).in_array(Schedule::DIRECTIONS) }
 
   describe "the timetable row" do
     it_behaves_like("a numeric field greater than 0", :schedule, :timetable_row)
@@ -53,21 +45,7 @@ RSpec.describe Schedule do
         end
       end
     end
-  end
 
-  describe "the time of week" do
-    it "validates the presence" do
-      expect(build_stubbed(:schedule, time_of_week: nil)).to be_invalid
-    end
-
-    it "is invalid with a random string" do
-      expect(build_stubbed(:schedule, time_of_week: '123')).to be_invalid
-    end
-
-    Schedule::TIMES_OF_WEEK.each do |time|
-      it "is valid with #{time}" do
-        expect(build_stubbed(:schedule, time_of_week: time)).to be_valid
-      end
-    end
+    it { should validate_inclusion_of(:time_of_week).in_array(Schedule::TIMES_OF_WEEK) }
   end
 end
