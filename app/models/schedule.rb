@@ -14,5 +14,7 @@ class Schedule < ActiveRecord::Base
   #TODO
   validates :stop_time, presence: true
 
-  validates :time_of_week, inclusion: %w(Weekday Saturday Sunday)
+  TIMES_OF_WEEK = ['Weekday', 'Saturday', 'Sunday']
+
+  validates :time_of_week, inclusion: TIMES_OF_WEEK
 end

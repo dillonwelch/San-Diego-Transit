@@ -6,16 +6,6 @@ RSpec.describe Route do
   end
 
   describe "validating the MTS id" do
-    it "validates the presence" do
-      expect(build(:route, mts_id: nil)).to be_invalid
-    end
-
-    it "is invalid with negative numbers" do
-      expect(build(:route, mts_id: -1)).to be_invalid
-    end
-
-    it "is invalid with zero" do
-      expect(build(:route, mts_id: 0)).to be_invalid
-    end
+    it_behaves_like("a numeric field greater than 0", :route, :mts_id)
   end
 end

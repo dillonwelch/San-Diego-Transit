@@ -2,20 +2,16 @@ require 'spec_helper'
 
 RSpec.describe Schedule, :type => :model do
   describe "validating the direction" do
-    it "validates the presence" do
-      expect(build(:schedule, direction: nil)).to be_invalid
-    end
+    it_behaves_like("a numeric field greater than 0", :route, :mts_id)
 
-    it "is invalid with a random string" do
-      expect(build(:schedule, direction: 'My Direction')).to be_invalid
-    end
-
-    it "is invalid with a number" do
-      expect(build(:schedule, direction: 123)).to be_invalid
+    Schedule::DIRECTIONS.each do |direction|
+      it "is valid with the #{direction} direction" do
+        expect(build(:schedule, direction: direction)).to be_valid
+      end
     end
   end
 
-  it "validates the other stuff" do
+  it "validates timetable_row" do
 
   end
 end
