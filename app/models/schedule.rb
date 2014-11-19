@@ -9,8 +9,8 @@ class Schedule < ActiveRecord::Base
   has_one :stop, through: :schedule_stop
   validates :stop, presence: true
 
-  DIRECTIONS = ['North', 'South', 'East', 'West']
-  TIMES_OF_WEEK = ['Weekday', 'Saturday', 'Sunday']
+  DIRECTIONS = [I18n.t('directions.north'), I18n.t('directions.south'), I18n.t('directions.east'), I18n.t('directions.west')]
+  TIMES_OF_WEEK = [I18n.t('time_of_week.weekday'), I18n.t('time_of_week.saturday'), I18n.t('time_of_week.sunday')]
 
   validates :direction, inclusion: DIRECTIONS
 

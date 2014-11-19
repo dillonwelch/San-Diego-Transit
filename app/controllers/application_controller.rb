@@ -7,7 +7,4 @@ class ApplicationController < ActionController::Base
   ###I18n.t values for route names
   ###I18n.t values for direction names
   ###I18n.t values for stop names
-  ###I18n.t values for time of week
-  #
-  #spec for scheduleroutes
 end
