@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe Schedule do
   ['schedule_route', 'route', 'schedule_stop', 'stop'].each do |field|
     describe "The #{field} field" do
-      it_behaves_like("an association field", :schedule, field)
+      it_behaves_like("an association field", field)
     end
   end
 

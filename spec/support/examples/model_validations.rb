@@ -12,12 +12,12 @@ RSpec.shared_examples "a numeric field greater than 0" do |model, field|
   end
 end
 
-RSpec.shared_examples "an association field" do |model, field|
-  it "is invalid when nil" do
-    expect(build_stubbed(model, field.to_sym => nil)).to be_invalid
-  end
+RSpec.shared_examples "an association field" do |field|
+  it { should have_one(field) }
+  it { should validate_presence_of(field) }
+end
 
-  it "is not nil" do
-    expect(build_stubbed(model).send(field)).not_to eq(nil)
-  end
+RSpec.shared_examples "a belongs_to field" do |field|
+  it { should belong_to(field) }
+  it { should validate_presence_of(field) }
 end
