@@ -1,15 +1,5 @@
-RSpec.shared_examples "a numeric field greater than 0" do |model, field|
-  it "validates the presence" do
-    expect(build_stubbed(model, field => nil)).to be_invalid
-  end
-
-  it "is invalid with negative numbers" do
-    expect(build_stubbed(model, field => -1)).to be_invalid
-  end
-
-  it "is invalid with zero" do
-    expect(build_stubbed(model, field => 0)).to be_invalid
-  end
+RSpec.shared_examples "a numeric field greater than 0" do |field|
+  it { should validate_numericality_of(field).only_integer.is_greater_than(0) }
 end
 
 RSpec.shared_examples "an association field" do |field|
