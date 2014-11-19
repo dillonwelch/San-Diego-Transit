@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe Schedule, :type => :model do
-  describe "validating the direction" do
-    it_behaves_like("a numeric field greater than 0", :route, :mts_id)
+RSpec.describe Schedule do
+  describe "the direction" do
+    it_behaves_like("a numeric field greater than 0", :schedule, :direction)
 
     Schedule::DIRECTIONS.each do |direction|
       it "is valid with the #{direction} direction" do
@@ -11,7 +11,27 @@ RSpec.describe Schedule, :type => :model do
     end
   end
 
-  it "validates timetable_row" do
+  describe "the timetable row" do
+    it_behaves_like("a numeric field greater than 0", :schedule, :timetable_row)
+  end
 
+  describe "the stop time" do
+    pending "Waiting on validation"
+  end
+
+  describe "the time of week" do
+    it "validates the presence" do
+      expect(build(:schedule, time_of_week: nil)).to be_invalid
+    end
+
+    it "is invalid with a random string" do
+      expect(build(:schedule, time_of_week: '123')).to be_invalid
+    end
+
+    Schedule::TIMES_OF_WEEK.each do |time|
+      it "is valid with #{time}" do
+        expect(build(:schedule, time_of_week: time)).to be_valid
+      end
+    end
   end
 end

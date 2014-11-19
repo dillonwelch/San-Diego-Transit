@@ -5,7 +5,7 @@ RSpec.describe Route do
     expect(build(:route, name: nil)).to be_invalid
   end
 
-  describe "validating the MTS id" do
+  describe "the MTS id" do
     it_behaves_like("a numeric field greater than 0", :route, :mts_id)
   end
 end
