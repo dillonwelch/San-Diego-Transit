@@ -37,7 +37,9 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-#
+
+# Tools to scrape the San Diego MTS sites for time data.
+gem 'nokogiri'
 
 group :development, :test do
   gem 'byebug'
