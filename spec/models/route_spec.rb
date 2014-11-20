@@ -3,8 +3,9 @@ require 'spec_helper'
 RSpec.describe Route do
   it { should validate_presence_of(:name) }
 
-  describe "the MTS id" do
-    it_behaves_like("a numeric field greater than 0", :mts_id)
+  [:mts_id, :mts_display_id].each do |id|
+    it { should allow_value(123, '123A', '123/456').for(id) }
+    it { should_not allow_value(nil, 'klajdlkfjaij', 'A123').for(id) }
   end
 
   describe "#crawl_bus_routes" do
