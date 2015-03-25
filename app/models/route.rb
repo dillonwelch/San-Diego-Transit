@@ -1,10 +1,12 @@
 class Route < ActiveRecord::Base
+  MTS_ID_FORMAT = /\d+(\d*)?A?/
+
   has_many :schedule_routes
   has_many :schedules, through: :schedule_routes
 
   validates :name, presence: true
-  validates :mts_id, format: { with: /\d+(\d+)?A?/ }
-  validates :mts_display_id, format: { with: /\d+(\d+)?A?/ }
+  validates :mts_id, format: { with: MTS_ID_FORMAT }
+  validates :mts_display_id, format: { with: MTS_ID_FORMAT }
 
   #TODO test
   default_scope { order('mts_id::int') }
@@ -24,14 +26,10 @@ class Route < ActiveRecord::Base
         begin
           Route.create!(name: name, mts_id: mts_id, mts_display_id: mts_display_id)
         rescue
-          byebug
+          # byebug
         end
       end
     end
-    byebug
-  end
-
-  def mts_id_format
-    /\d*(\d*)?A?/
+    # byebug
   end
 end
